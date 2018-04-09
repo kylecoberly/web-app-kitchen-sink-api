@@ -1,0 +1,39 @@
+{
+    "name": "web-app-kitchen-sink-api",
+    "version": "0.1.0",
+    "description": "API for webappkitchensink.com",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev:start": "nodemon index.js",
+        "test": "mocha --recursive -wG tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/kylecoberly/web-app-kitchen-sink-api.git"
+    },
+    "keywords": [
+        "API",
+        "node",
+        "express"
+    ],
+    "author": "Kyle Coberly",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/kylecoberly/web-app-kitchen-sink-api/issues"
+    },
+    "homepage": "https://github.com/kylecoberly/web-app-kitchen-sink-api#readme",
+    "dependencies": {
+        "@octokit/rest": "^15.2.6",
+        "body-parser": "^1.18.2",
+        "cors": "^2.8.4",
+        "dotenv": "^5.0.1",
+        "express": "^4.16.3",
+        "stripe": "^5.8.0"
+    },
+    "devDependencies": {
+        "mocha": "^5.0.5",
+        "nodemon": "^1.17.3",
+        "supertest": "^3.0.0"
+    }
+}
