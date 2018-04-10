@@ -1,20 +1,21 @@
-/* waks:start=Backend Code=start
+/* waks:start=Express Route=start
 This is an example annotation
 waks:example */
 const express = require("express");
 const router = express.Router();
 
-router.post("/", (request, response) => {
-    const stripe = require("stripe")(process.env.STRIPE_KEY);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
-    stripe.charges.create({
-        amount: request.body.charge,
+router.post("/", (request, response) => {
+    const options = {
+        amount: +request.body.amount,
         currency: "usd",
         description: request.body.description,
-        source: request.body.stripeToken,
-    }, (error, charge) => {
+        source: request.body.token,
+    };
+    stripe.charges.create(options, (error, charge) => {
         error
-            ? response.status(400).send(error.message)
+            ? response.status(400).json({error: error.message})
             : response.json({data: charge});
     });
 });
