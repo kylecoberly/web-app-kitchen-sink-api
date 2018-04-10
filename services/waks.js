@@ -1,16 +1,17 @@
 function decode(fileContents){
     return splitByLine(fileContents).reduce((accumulator, line) => {
-        if (line === "\/* waks:start"){
+        if (/waks\:start=/.test(line)) {
             accumulator.annotatedExamples.push({
+                heading: /waks:start=(.*)=start/.exec(line)[1],
                 annotation: "",
                 example: ""
             });
             accumulator.inAnnotation = true;
             accumulator.inExample = false;
-        } else if (line === "waks:example *\/") {
+        } else if (/waks\:example/.test(line)) {
             accumulator.inAnnotation = false;
             accumulator.inExample = true;
-        } else if (line === "\/* waks:end *\/") {
+        } else if (/waks\:end/.test(line)) {
             accumulator.inAnnotation = false;
             accumulator.inExample = false;
         } else if (accumulator.inAnnotation) {

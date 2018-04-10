@@ -1,4 +1,4 @@
-/* waks:start
+/* waks:start=Backend Code=start
 This is an example annotation
 waks:example */
 const express = require("express");

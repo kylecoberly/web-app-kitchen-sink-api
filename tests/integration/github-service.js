@@ -17,7 +17,7 @@ describe("Github Service", () => {
     it("Retrieves backend examples", done => {
         github.getBackendExamples("test-markup").then(contents => {
             assert.equal(contents, `\/\/ Ignore this
-\/* waks:start
+\/* waks:start=Heading=start
 a
 b
 waks:example *\/
@@ -25,7 +25,7 @@ d
 e
 \/* waks:end *\/
 \/\/ Ignore this too
-\/* waks:start
+\/* waks:start=Heading=start
 f
 g
 waks:example *\/
@@ -41,7 +41,7 @@ i
     it("Retrieves frontend examples", done => {
         github.getFrontendExamples("test-markup").then(contents => {
             assert.equal(contents, `\/\/ Ignore this
-\/* waks:start
+\/* waks:start=Heading=start
 a
 b
 waks:example *\/
@@ -49,7 +49,7 @@ d
 e
 \/* waks:end *\/
 \/\/ Ignore this too
-\/* waks:start
+\/* waks:start=Heading=start
 f
 g
 waks:example *\/
@@ -65,7 +65,7 @@ i
     it("Retrieves all examples", done => {
         github.getAllExamples("test-markup").then(contents => {
             assert.equal(contents, `\/\/ Ignore this
-\/* waks:start
+\/* waks:start=Heading=start
 a
 b
 waks:example *\/
@@ -73,7 +73,7 @@ d
 e
 \/* waks:end *\/
 \/\/ Ignore this too
-\/* waks:start
+\/* waks:start=Heading=start
 f
 g
 waks:example *\/
@@ -82,7 +82,7 @@ i
 \/* waks:end *\/
 \/\/ Ignore this as well
 \/\/ Ignore this
-\/* waks:start
+\/* waks:start=Heading=start
 a
 b
 waks:example *\/
@@ -90,7 +90,7 @@ d
 e
 \/* waks:end *\/
 \/\/ Ignore this too
-\/* waks:start
+\/* waks:start=Heading=start
 f
 g
 waks:example *\/
