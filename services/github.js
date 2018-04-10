@@ -17,7 +17,7 @@ function getBackendExamples(route){
     return getFile(
         process.env.GITHUB_USERNAME,
         process.env.GITHUB_BACKEND_REPO,
-        `routes/${route}.js`
+        `routes/apis/${route}.js`
     );
 }
 
@@ -25,7 +25,7 @@ function getFrontendExamples(component){
     return getFile(
         process.env.GITHUB_USERNAME,
         process.env.GITHUB_FRONTEND_REPO,
-        `src/components/${component}.vue`
+        `src/components/apis/${component}.vue`
     );
 }
 
