@@ -1,4 +1,5 @@
 require("dotenv").load();
+
 const express = require("express");
 const app = express();
 
@@ -6,8 +7,10 @@ app.use(require("cors")());
 app.use(require("body-parser").json());
 
 ["stripe-payments"].forEach(example => {
-    app.use(`/examples/${example}`, require(`./routes/${example}`));
+    app.use(`/apis/${example}`, require(`./routes/apis/${example}`));
 });
+
+app.use("/examples", require("./routes/examples"));
 
 /* Error handling */
 app.use((request, response, next) => {

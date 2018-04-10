@@ -1,3 +1,6 @@
+/* waks:start
+This is an example annotation
+waks:example */
 const express = require("express");
 const router = express.Router();
 
@@ -7,7 +10,7 @@ router.post("/", (request, response) => {
     stripe.charges.create({
         amount: request.body.charge,
         currency: "usd",
-        description: request.body.description
+        description: request.body.description,
         source: request.body.stripeToken,
     }, (error, charge) => {
         error
@@ -15,5 +18,6 @@ router.post("/", (request, response) => {
             : response.json({data: charge});
     });
 });
+/* waks:end */
 
 module.exports = router;
