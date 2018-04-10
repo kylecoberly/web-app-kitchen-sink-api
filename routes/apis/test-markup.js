@@ -2,16 +2,16 @@
 /* waks:start
 a
 b
-waks:example
+waks:example */
 d
 e
-waks:end */
+/* waks:end */
 // Ignore this too
 /* waks:start
 f
 g
-waks:example
+waks:example */
 h
 i
-waks:end */
+/* waks:end */
 // Ignore this as well

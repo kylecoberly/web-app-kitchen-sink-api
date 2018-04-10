@@ -7,10 +7,10 @@ function decode(fileContents){
             });
             accumulator.inAnnotation = true;
             accumulator.inExample = false;
-        } else if (line === "waks:example") {
+        } else if (line === "waks:example *\/") {
             accumulator.inAnnotation = false;
             accumulator.inExample = true;
-        } else if (line === "waks:end *\/") {
+        } else if (line === "\/* waks:end *\/") {
             accumulator.inAnnotation = false;
             accumulator.inExample = false;
         } else if (accumulator.inAnnotation) {

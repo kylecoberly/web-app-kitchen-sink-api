@@ -7,9 +7,9 @@ describe("WAKS", () => {
 // Ignore this
 /* waks:start
 Annotation
-waks:example
+waks:example */
 const a = 'a';
-waks:end */
+/* waks:end */
 // Ignore this too
         `;
         assert.deepEqual(decode(encodedString), [{
@@ -22,15 +22,15 @@ waks:end */
 // Ignore this
 /* waks:start
 Annotation1
-waks:example
+waks:example */
 const a = 'a';
-waks:end */
+/* waks:end */
 // Ignore this too
 /* waks:start
 Annotation2
-waks:example
+waks:example */
 const b = 'b';
-waks:end */
+/* waks:end */
 // Ignore this as well
         `;
         assert.deepEqual(decode(encodedString), [{
