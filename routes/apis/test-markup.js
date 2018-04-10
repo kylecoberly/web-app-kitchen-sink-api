@@ -1,5 +1,5 @@
 // Ignore this
-/* waks:start
+/* waks:start=Heading=start
 a
 b
 waks:example */
@@ -7,7 +7,7 @@ d
 e
 /* waks:end */
 // Ignore this too
-/* waks:start
+/* waks:start=Heading=start
 f
 g
 waks:example */
