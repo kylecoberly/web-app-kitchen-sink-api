@@ -9,7 +9,8 @@ github.authenticate({
 
 function getFile(owner, repo, path){
     return github.repos.getContent({owner, repo, path})
-        .then(response => decode(response.data.content));
+        .then(response => decode(response.data.content))
+        .catch(error => "");
 }
 
 function getBackendExamples(route){
