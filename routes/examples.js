@@ -8,7 +8,12 @@ router.get("/:id", (request, response) => {
     getAllExamples(request.params.id)
         .then(decode)
         .then(annotatedExamples => {
-            response.json({data: annotatedExamples});
+            response.json({
+                data: {
+                    label: request.params.id,
+                    annotatedExamples
+                }
+            });
         }).catch(error => {
             throw new Error(error);
         });
