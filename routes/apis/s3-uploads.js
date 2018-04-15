@@ -1,4 +1,5 @@
 /* waks:start=File Upload Server=start
+This is the server
 waks:example */
 const express = require("express");
 const router = express.Router();
@@ -23,19 +24,19 @@ const upload = multer({
     storage: multerS3({
         s3, // The s3 instance from above
         /* The name of your S3 bucket */
-        bucket: process.env.S3_BUCKET_NAME
+        bucket: process.env.S3_BUCKET_NAME,
         key: (request, file, next) => {
             // This names the file. This example prepends the 
             // UNIX timestamp to original name of the file,
             // which helps with duplicate file names
-            next(null, `${Date.now()}_${file.originalname}`);
+            next(null, `files/${Date.now()}_${file.originalname}`);
         }
     })
 });
 
 // The upload.array method runs as middleware, and then adds `file`
 // to the `request` object. "file" is the `name` from the file upload form.
-app.post("/upload", upload.single("file", 1), (request, response) => {
+router.post("/upload", upload.single("file", 1), (request, response) => {
     // Return the URL the file was uploaded to- optionally, store it
     // in a database first.
     response.json({data: request.file.location});

@@ -25,10 +25,13 @@
     "homepage": "https://github.com/kylecoberly/web-app-kitchen-sink-api#readme",
     "dependencies": {
         "@octokit/rest": "^15.2.6",
+        "aws-sdk": "^2.224.1",
         "body-parser": "^1.18.2",
         "cors": "^2.8.4",
         "dotenv": "^5.0.1",
         "express": "^4.16.3",
+        "multer": "^1.3.0",
+        "multer-s3": "^2.7.0",
         "stripe": "^5.8.0"
     },
     "devDependencies": {
