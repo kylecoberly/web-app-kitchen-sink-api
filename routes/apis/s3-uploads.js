@@ -54,7 +54,7 @@ const upload = multer({
 // The upload object from above has a `.single` method that runs as middleware,
 // and then adds `file` to the `request` object. "file" is the `name` from
 // the file upload form.
-router.post("/upload", upload.single("file", 1), (request, response) => {
+router.post("/upload", upload.single("file"), (request, response) => {
     // Return the URL the file was uploaded to- optionally, store it
     // in a database first.
     response.json({data: request.file.location});
