@@ -9,6 +9,7 @@ app.use(require("body-parser").json());
 [
     "stripe-payments",
     "s3-uploads",
+    "social-auth"
 ].forEach(example => {
     app.use(`/apis/${example}`, require(`./routes/apis/${example}`));
 });
