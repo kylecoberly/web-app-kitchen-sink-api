@@ -6,7 +6,7 @@ First, you need to register your application with Facebook.
 3. Go to "Facebook Login" > "Settings"
 4. Make sure "Client OAuth Login," "Web OAuth Login," "Enforce HTTPS," and "Use Strict Mode for Redirect URIs" are enabled
 5. Add the full URL for your `/redirect` route (eg. `https://web-app-kitchen-sink-api.herokuapp.com/apis/social-auth/redirect`)
-6. Go to "Settings" > "Basic", and save your App ID and App Secret in your environment variables. Optionally, update the app icon, URL, TOS, and privacy policy.
+6. Go to "Settings" > "Basic", and save your App ID and App Secret in your environment variables. Optionally, update the app icon, URL, TOS, and privacy policy (required for public deployment).
 7. Go to "Settings" > "Advanced", and activate "Require App Secret"
 
 There are two major things to configure on the server:
