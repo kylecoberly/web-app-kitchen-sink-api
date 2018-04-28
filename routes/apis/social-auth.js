@@ -5,7 +5,7 @@ First, you need to register your application with Facebook.
 2. Name your app and give a contact email
 3. Go to "Facebook Login" > "Settings"
 4. Make sure "Client OAuth Login," "Web OAuth Login," "Enforce HTTPS," and "Use Strict Mode for Redirect URIs" are enabled
-5. Add the full URL for your `/redirect` route (eg. "https://web-app-kitchen-sink-api.herokuapp.com/apis/social-auth/redirect")
+5. Add the full URL for your `/redirect` route (eg. `https://web-app-kitchen-sink-api.herokuapp.com/apis/social-auth/redirect`)
 6. Go to "Settings" > "Basic", and save your App ID and App Secret in your environment variables. Optionally, update the app icon, URL, TOS, and privacy policy.
 7. Go to "Settings" > "Advanced", and activate "Require App Secret"
 
@@ -47,7 +47,7 @@ const jwtStrategy = new JWTStrategy({
     // header using the bearer strategy, meaning that the header
     // will look something like this: `Authorization: Bearer xxx.yyy.zzz`.
     jwtFromRequest: passportJwt.ExtractJwt.fromAuthHeaderAsBearerToken(),
-    // Used to encrypt the JWT
+    // Used to decrypt the JWT
     secretOrKey: process.env.TOKEN_SECRET
 }, verifyAccess);
 // This function takes the decoded JWT and gives us an opportunity
@@ -140,9 +140,11 @@ waks:example */
 router.get("/secure",
     passport.authenticate("jwt", {
         session: false,
-        failureRedirect: "/apis/socia-auth/login"
+        failureRedirect: "/apis/social-auth/login"
     }),
     (request, response) => {
+        // `request.user` has all the data we passed
+        // out of the `verifyAccess` function
         response.json({data: `Got a secure response from ${request.user.name}`});
     }
 );
